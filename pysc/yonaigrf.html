@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>yonaigrf</title>
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+
+<body>
+  <p id="ms1"style=padding-left:8em></p>
+  <div id="gf1"></div>
+
+
+  <py-config>
+    packages = [
+    "pandas",
+    "lxml",
+    "numpy",
+    "matplotlib",
+    ]
+    [[fetch]]
+    files = ["./yonai.py"]
+  </py-config>
+
+  <py-script>
+    from yonai import yonaiplt
+    display(yonaiplt()[0], target="gf1")
+    pyscript.write('ms1', yonaiplt()[1]+'　'+yonaiplt()[2]+'　'+yonaiplt()[3])
+  </py-script>
+
+  <script></script>
+
+</body>
+
+</html>
